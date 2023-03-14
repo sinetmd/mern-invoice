@@ -14,14 +14,27 @@ services:
       - .:/app
     depends_on:
       - mongodb
-    ports:
-      # map the port 3k from the container to port port 3k inside the machine
-      - "3000:3000"
+    # ports:
+    # map the port 3k from the container to port port 3k inside the machine
+    # - "1997:1997"
     environment:
       NODE_ENV: ${NODE_ENV}
       MONGO_URI: mongodb://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@mongodb
       # ensure chalk will work in the container too
       FORCE_COLOR: 1
+    networks:
+      - invoice
+
+  client:
+    build:
+      context: ./client
+      dockerfile: ./docker/local/Dockerfile
+    restart: on-failure
+    environment:
+      - WATCHPACK_POLLING=true
+    volumes:
+      - ./client:/app
+      - /app/node_modules
     networks:
       - invoice
 
@@ -52,11 +65,27 @@ services:
       ME_CONFIG_BASICAUTH_PASSWORD: admin123456
     networks:
       - invoice
+
   mailhog:
     image: mailhog/mailhog:v1.0.0
     ports:
       - "8025:8025"
       - "1025:1025"
+    networks:
+      - invoice
+
+  nginx:
+    build:
+      context: ./docker/local/nginx
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    restart: always
+    depends_on:
+      - api
+    volumes:
+      - static_volume:/app/staticfiles
+      - pdf_volume:/app/docs
     networks:
       - invoice
 
@@ -66,3 +95,5 @@ networks:
 
 volumes:
   mongodb-data:
+  static_volume:
+  pdf_volume:
