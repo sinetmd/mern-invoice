@@ -4,6 +4,9 @@ import chalk from "chalk";
 import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import { morganMiddleware, systemLogs } from "./utils/Logger.js";
+import connectionToDB from "./config/connectDB.js";
+
+await connectionToDB();
 
 const app = express();
 
