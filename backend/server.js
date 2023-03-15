@@ -5,6 +5,7 @@ import cookieParser from "cookie-parser";
 import morgan from "morgan";
 import { morganMiddleware, systemLogs } from "./utils/Logger.js";
 import connectionToDB from "./config/connectDB.js";
+import mongoSanitize from "express-mongo-sanitize";
 
 await connectionToDB();
 
@@ -20,6 +21,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use(cookieParser());
+
+// The sanitize function will strip out any keys that start with '$' in the input,
+// so you can pass it to MongoDB without worrying about malicious users overwriting
+// query selectors.
+app.use(mongoSanitize());
 
 app.use(morganMiddleware);
 
