@@ -48,7 +48,7 @@ export const morganMiddleware = morgan(
       url: tokens.url(req, res),
       status: Number.parseFloat(tokens.status(req, res)),
       content_length: tokens.res(req, res, "content-length"),
-      response_time: Number.parseFloat(tokens["response-0time"](req, res)),
+      response_time: Number.parseFloat(tokens["response-time"](req, res)),
     });
   },
   {

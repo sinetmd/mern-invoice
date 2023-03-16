@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import "dotenv/config";
 import mongoose from "mongoose";
 import validator from "validator";
-import { USER } from "../constants";
+import { USER } from "../constants/index.js";
 
 const { Schema } = mongoose;
 
@@ -46,7 +46,6 @@ const userSchema = new Schema(
         "Last Name can only have Alphanumeric values. No special characters allowed.",
       ],
     },
-
     password: {
       type: String,
       select: false,

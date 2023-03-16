@@ -6,6 +6,7 @@ import morgan from "morgan";
 import { morganMiddleware, systemLogs } from "./utils/Logger.js";
 import connectionToDB from "./config/connectDB.js";
 import mongoSanitize from "express-mongo-sanitize";
+import authRoutes from "./routes/authRoutes.js";
 
 import { errorHandler, notFound } from "./middleware/errorMiddleware.js";
 
@@ -35,8 +36,11 @@ app.get("/api/v1/test", (req, res) => {
   res.json({ Hi: "Welcome to the Invoice App" });
 });
 
+// routes
+app.use("/api/v1/auth", authRoutes);
+
 app.use(notFound);
-app.use(errorHandler);
+app.use(errorHandler)
 
 const PORT = process.env.PORT || 1997;
 
