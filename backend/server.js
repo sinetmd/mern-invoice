@@ -40,7 +40,7 @@ app.get("/api/v1/test", (req, res) => {
 app.use("/api/v1/auth", authRoutes);
 
 app.use(notFound);
-app.use(errorHandler)
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 1997;
 
