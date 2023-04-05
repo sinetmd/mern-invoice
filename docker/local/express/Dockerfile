@@ -4,7 +4,7 @@ FROM node:${NODE_VERSION}
 
 LABEL name="mern-invoice"
 LABEL license="MIT"
-LABEL description="MERN Invoice image"
+LABEL description="MERN invoice image"
 
 ENV NODE_ENV=development
 
@@ -13,9 +13,9 @@ ARG APP_HOME=/app
 WORKDIR ${APP_HOME}
 
 RUN addgroup --system invoice \
-    && adduser --system --ingroup invoice invoice
+  && adduser --system --ingroup invoice invoice
 
-COPY package*.json ./ 
+COPY package*.json ./
 
 RUN npm install
 
@@ -25,4 +25,4 @@ RUN chown invoice:invoice ${APP_HOME}
 
 USER invoice
 
-CMD ["npm", "run", "dev"]
+CMD [ "npm","run","dev" ]

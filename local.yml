@@ -7,20 +7,15 @@ services:
       context: .
       dockerfile: ./docker/local/express/Dockerfile
     volumes:
-      # dont override this folder in the container with the local one
       - /app/node_modules
-      # map the current local directory (.) to the /app in the working directory inside the container
-      # this is a must for devopment in order to update our container
       - .:/app
     depends_on:
       - mongodb
     # ports:
-    # map the port 3k from the container to port port 3k inside the machine
-    # - "1997:1997"
+    #     - "1997:1997"
     environment:
       NODE_ENV: ${NODE_ENV}
       MONGO_URI: mongodb://${MONGO_ROOT_USERNAME}:${MONGO_ROOT_PASSWORD}@mongodb
-      # ensure chalk will work in the container too
       FORCE_COLOR: 1
     networks:
       - invoice
@@ -30,8 +25,6 @@ services:
       context: ./client
       dockerfile: ./docker/local/Dockerfile
     restart: on-failure
-    environment:
-      - WATCHPACK_POLLING=true
     volumes:
       - ./client:/app
       - /app/node_modules
@@ -47,7 +40,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
     volumes:
-      - mongodb-data:/data/db/
+      - mongodb-data:/data/db
     networks:
       - invoice
 
