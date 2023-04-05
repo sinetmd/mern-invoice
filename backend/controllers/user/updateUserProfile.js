@@ -1,8 +1,8 @@
 import asyncHandler from "express-async-handler";
 import User from "../../models/userModel.js";
 
-// $-title   Get User profile information
-// $-path    POST /api/v1/user/profile
+// $-title   Update User profile information
+// $-path    Patch /api/v1/user/profile
 // $-auth    Private
 
 const updateUserProfile = asyncHandler(async (req, res) => {
