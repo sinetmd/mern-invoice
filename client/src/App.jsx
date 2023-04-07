@@ -1,7 +1,29 @@
+import { CssBaseline } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { customTheme } from "./customTheme";
+import useTitle from "./hooks/useTitle";
+import HomePage from "./pages/HomePage";
+import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
+import Layout from "./components/Layout";
+
 export const App = () => {
+  useTitle("MERN Invoice - Home");
   return (
-    <div>
-      <h1>Welcome to the Invoice App!</h1>
-    </div>
+    <ThemeProvider theme={customTheme}>
+      <CssBaseline />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+      <Footer />
+      <ToastContainer theme="dark" />
+    </ThemeProvider>
   );
 };
