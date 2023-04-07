@@ -15,7 +15,7 @@ function Copyright() {
 
 const Footer = () => {
   return (
-    <Box sx={{ position: "fixed", bottom: 0, width: "100%" }}>
+    <Box sx={{ bgcolor: "#000000", marginTop: "auto" }}>
       {/* helps with inconsistency in all browser with material ui (cssbaseline) */}
       <CssBaseline />
       <Box
@@ -24,7 +24,7 @@ const Footer = () => {
           py: 1,
           px: 1,
           mt: "auto",
-          bgColor: "#000000",
+          bgcolor: "#000000",
         }}
       >
         <Typography
