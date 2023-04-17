@@ -1,4 +1,4 @@
-import { Box } from "@mui/material/Box";
+import { Box } from "@mui/material";
 import { FcGoogle } from "react-icons/fc";
 
 const GoogleLogin = () => {
