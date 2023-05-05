@@ -11,6 +11,8 @@ export const strengthColor = (count) => {
   if (count < 4) return { label: "Normal", color: "#FFC400" };
   if (count < 5) return { label: "Good", color: "#52C41A" };
   if (count < 6) return { label: "Strong", color: "#C6FF00" };
+
+  // by default return poor
   return { label: "Poor", color: "#ff4d4f" };
 };
 

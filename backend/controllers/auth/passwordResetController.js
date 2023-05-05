@@ -92,7 +92,7 @@ const resetPassword = asyncHandler(async (req, res) => {
   }
 
   const passwordResetToken = await VerificationToken.findOne({
-    _userId: userId,
+    userId,
   });
 
   console.log("Password ResetToken: ", passwordResetToken);
