@@ -17,7 +17,7 @@ import Navbar from "./components/navbar";
 import ResendEmailTokenPage from "./features/auth/pages/ResendEmailTokenPage";
 import PasswordResetRequestPage from "./features/auth/pages/PasswordResetRequestPage";
 import PasswordResetPage from "./features/auth/pages/PasswordResetPage";
-import UsersListPage from "./features/users/pages/UsersListPage";
+import UsersListPage from "./features/users/UsersListPage";
 import AuthRequired from "./components/AuthRequired";
 import DashboardPage from "./pages/DashboardPage";
 import { ROLES } from "./config/roles";
