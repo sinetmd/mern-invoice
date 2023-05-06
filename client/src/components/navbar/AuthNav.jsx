@@ -85,8 +85,10 @@ const Drawer = styled(MuiDrawer, {
 
 const AuthNav = () => {
   const { user, googleToken } = useSelector((state) => state.auth);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const theme = useTheme();
   const [open, setOpen] = useState(false);
 
