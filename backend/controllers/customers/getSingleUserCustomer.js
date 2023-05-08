@@ -2,7 +2,7 @@ import asyncHandler from "express-async-handler";
 import Customer from "../../models/customerModel.js";
 
 // $-title   Get a single Customer belonging to a User
-// $-path    POST /api/v1/customer/:id
+// $-path    GET /api/v1/customer/:id
 // $-auth    Private
 
 const getSingleUserCustomer = asyncHandler(async (req, res) => {

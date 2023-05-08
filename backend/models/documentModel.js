@@ -1,5 +1,4 @@
-import mongoose from "mongoose";
-import validator from "validator";
+import mongoose, { Schema } from "mongoose";
 
 const { randomBytes } = await import("crypto");
 
@@ -27,7 +26,7 @@ const paymentSchema = new Schema(
   }
 );
 
-const documentSchema = new Schmea(
+const documentSchema = new Schema(
   {
     createdBy: {
       type: Schema.Types.ObjectId,
@@ -79,7 +78,7 @@ const documentSchema = new Schmea(
   }
 );
 
-documentSchema.prev("save", async function (next) {
+documentSchema.pre("save", async function (next) {
   this.documentNumber = `${new Date().getFullYear()}-${new Date().toLocaleString(
     "default",
     { month: "long" }
