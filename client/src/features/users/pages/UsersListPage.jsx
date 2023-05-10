@@ -21,13 +21,13 @@ import moment from "moment";
 import { useEffect, useState } from "react";
 import { MdOutlineBadge } from "react-icons/md";
 import { toast } from "react-toastify";
-import Spinner from "../../components/Spinner";
-import StyledDivider from "../../components/StyledDivider";
-import StyledTableCell from "../../components/StyledTableCell";
-import StyledTableRow from "../../components/StyledTableRow";
-import TablePaginationActions from "../../components/TablePaginationActions";
-import useTitle from "../../hooks/useTitle";
-import { useGetAllUsersQuery } from "./pages/usersApiSlice";
+import Spinner from "../../../components/Spinner";
+import StyledDivider from "../../../components/StyledDivider";
+import StyledTableCell from "../../../components/StyledTableCell";
+import StyledTableRow from "../../../components/StyledTableRow";
+import TablePaginationActions from "../../../components/TablePaginationActions";
+import useTitle from "../../../hooks/useTitle";
+import { useGetAllUsersQuery } from "../usersApiSlice";
 
 const UsersListPage = () => {
   useTitle("All Users - MERN Invoice");

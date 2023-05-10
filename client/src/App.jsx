@@ -1,26 +1,28 @@
 import { CssBaseline } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
+import { useSelector } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { customTheme } from "./customTheme";
-import useTitle from "./hooks/useTitle";
-import HomePage from "./pages/HomePage";
-import NotFound from "./components/NotFound";
+import AuthRequired from "./components/AuthRequired";
 import Footer from "./components/Footer";
 import Layout from "./components/Layout";
-import RegisterPage from "./features/auth/pages/RegisterPage";
-import VerifiedPage from "./features/auth/pages/VerifiedPage";
-import LoginPage from "./features/auth/pages/LoginPage";
-import { useSelector } from "react-redux";
+import NotFound from "./components/NotFound";
 import Navbar from "./components/navbar";
-import ResendEmailTokenPage from "./features/auth/pages/ResendEmailTokenPage";
-import PasswordResetRequestPage from "./features/auth/pages/PasswordResetRequestPage";
-import PasswordResetPage from "./features/auth/pages/PasswordResetPage";
-import UsersListPage from "./features/users/UsersListPage";
-import AuthRequired from "./components/AuthRequired";
-import DashboardPage from "./pages/DashboardPage";
 import { ROLES } from "./config/roles";
+import { customTheme } from "./customTheme";
+import LoginPage from "./features/auth/pages/LoginPage";
+import PasswordResetPage from "./features/auth/pages/PasswordResetPage";
+import PasswordResetRequestPage from "./features/auth/pages/PasswordResetRequestPage";
+import RegisterPage from "./features/auth/pages/RegisterPage";
+import ResendEmailTokenPage from "./features/auth/pages/ResendEmailTokenPage";
+import VerifiedPage from "./features/auth/pages/VerifiedPage";
+import useTitle from "./hooks/useTitle";
+import DashboardPage from "./pages/DashboardPage";
+import HomePage from "./pages/HomePage";
+import UsersListPage from "./features/users/pages/UsersListPage";
+import ProfilePage from "./features/users/pages/ProfilePage";
+import EditProfileForm from "./features/users/pages/EditProfileForm";
 
 export const App = () => {
   useTitle("MERN Invoice - Home");
@@ -48,6 +50,8 @@ export const App = () => {
           {/* for this route you are not allowed if you are not signed in */}
           <Route element={<AuthRequired allowedRoles={[ROLES.User]} />}>
             <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/edit-profile" element={<EditProfileForm />} />
           </Route>
           {/* Private Routes - Admins */}
           <Route element={<AuthRequired allowedRoles={[ROLES.Admin]} />}>
