@@ -1,9 +1,9 @@
 import { baseApiSlice } from "../api/baseApiSlice";
 
-export const customerApiSlice = baseApiSlice.injectEndpoints({
+export const customersApiSlice = baseApiSlice.injectEndpoints({
   endpoints: (builder) => ({
-    getAllUsersCustomers: builder.query({
-      query: (page = 1) => `customer/all?page=${page}`,
+    getAllUserCustomers: builder.query({
+      query: (page = 1) => `/customer/all?page=${page}`,
       providesTags: ["Customer"],
     }),
     createCustomer: builder.mutation({
@@ -12,19 +12,19 @@ export const customerApiSlice = baseApiSlice.injectEndpoints({
         method: "POST",
         body: customerInfo,
       }),
-      invlidateTags: ["Customer"],
+      invalidatesTags: ["Customer"],
     }),
     getSingleCustomer: builder.query({
-      query: (customerId) => `/customer/${customerId}`,
+      query: (custId) => `/customer/${custId}`,
       providesTags: ["Customer"],
     }),
-    updateCustomer: builder.mutation({
+    updateCustomerInfo: builder.mutation({
       query: ({ id, ...otherFields }) => ({
         url: `/customer/${id}`,
         method: "PATCH",
         body: otherFields,
       }),
-      invlidateTags: ["Customer"],
+      invalidatesTags: ["Customer"],
     }),
     deleteCustomer: builder.mutation({
       query: (id) => ({
@@ -37,9 +37,9 @@ export const customerApiSlice = baseApiSlice.injectEndpoints({
 });
 
 export const {
-  useGetAllUsersCustomersQuery,
-  useCreateCustomerMutation,
+  useGetAllUserCustomersQuery,
   useGetSingleCustomerQuery,
-  useUpdateCustomerMutation,
+  useCreateCustomerMutation,
+  useUpdateCustomerInfoMutation,
   useDeleteCustomerMutation,
-} = customerApiSlice;
+} = customersApiSlice;

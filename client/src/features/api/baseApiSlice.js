@@ -8,9 +8,9 @@ const baseQuery = fetchBaseQuery({
     const token = getState().auth.user?.accessToken;
     const googleToken = getState().auth.googleToken;
     if (token) {
-      headers.set("authorization", `Bearer ${token}`);
+      headers.set("Authorization", `Bearer ${token}`);
     } else if (googleToken) {
-      headers.set("authorization", `Bearer ${googleToken}`);
+      headers.set("Authorization", `Bearer ${googleToken}`);
     }
     return headers;
   },
@@ -37,7 +37,7 @@ const baseQueryWithRefreshToken = async (args, api, extraOptions) => {
 };
 
 export const baseApiSlice = createApi({
-  reducerPath: "api", // by default is api so you can ommit naming it
+  reducerPath: "api", // path by default is -> "http://.../api", you can omit naming it
   baseQuery: baseQueryWithRefreshToken,
   tagTypes: ["User", "Customer", "Document"],
   endpoints: (builder) => ({}),

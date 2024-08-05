@@ -49,7 +49,7 @@ const PasswordResetPage = () => {
     setShowConfirmPassword(!showConfirmPassword);
   };
 
-  // prevent default behavior when a mouse is pressed when the pointer is inside the passwordConfirm field
+  // prevent default behavior when a mouse is pressed the mouse location (pointer) is inside the passwordConfirm field
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -59,6 +59,7 @@ const PasswordResetPage = () => {
     const temp = strengthIndicator(value);
     setLevel(strengthColor(temp));
   };
+  
   useEffect(() => {
     changePassword("");
   }, []);

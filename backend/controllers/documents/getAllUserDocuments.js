@@ -1,5 +1,4 @@
 import asyncHandler from "express-async-handler";
-import Customer from "../../models/customerModel.js";
 import Document from "../../models/documentModel.js";
 
 // $-title   Get ALL DOCUMENTS belonging to a specific User

@@ -15,7 +15,7 @@ function Copyright() {
 
 const Footer = () => {
   return (
-    <Box sx={{ bgcolor: "#000000", marginTop: "auto" }}>
+    <Box sx={{ bgcolor: "#000000", marginTop: "auto" }} className="footer">
       {/* helps with inconsistency in all browser with material ui (cssbaseline) */}
       <CssBaseline />
       <Box

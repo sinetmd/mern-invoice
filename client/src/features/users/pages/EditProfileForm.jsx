@@ -284,14 +284,16 @@ const EditProfileForm = () => {
             </Grid>
           </Grid>
           {/* avatar logo */}
-          <TextField
-            fullWidth
-            id="avatar"
-            name="avatar"
-            margin="normal"
-            value={avatar || ""}
-            onChange={(e) => setAvatar(e.target.value)}
-          />
+          {!avatar && (
+            <TextField
+              fullWidth
+              id="avatar"
+              name="avatar"
+              margin="normal"
+              value={avatar}
+              onChange={(e) => setAvatar(e.target.value)}
+            />
+          )}
           <label htmlFor="logo">
             <Input
               accept="image/*"

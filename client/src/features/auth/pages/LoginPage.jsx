@@ -96,7 +96,7 @@ const LoginPage = () => {
               }}
             >
               <Typography variant="h6">
-                Don't have an account?
+                Don't have an account?{" "}
                 <Link
                   variant="h6"
                   component={RouterLink}
@@ -122,7 +122,7 @@ const LoginPage = () => {
               }}
             >
               <Typography variant="h6">
-                Didn't get the verification email?
+                Didn't get the verification email?{" "}
                 <Link
                   variant="h6"
                   component={RouterLink}

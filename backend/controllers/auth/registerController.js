@@ -45,7 +45,7 @@ const registerUser = asyncHandler(async (req, res) => {
 	if (userExists) {
 		res.status(400);
 		throw new Error(
-			"The email address you've entered is already associated with another account"
+			"The email address you've entered is already associated with another account!"
 		);
 	}
 
