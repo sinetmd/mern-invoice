@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Grid, Stack, Typography } from "@mui/material";
-import DocSVG from "../../../images/add_bill.svg";
+import DocSVG from "../../../../images/add_bill.svg";
 
 const DocumentSVG = () => {
   return (

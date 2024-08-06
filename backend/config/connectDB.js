@@ -9,7 +9,7 @@ const connectionToDB = async () => {
     };
 
     const connect = await mongoose.connect(
-      process.env.MONGO_URI, // this is not from .env file but from a environemt local.yml file (local.yml -> )
+      process.env.MONGO_URI, // this is not from .env file but from a environment local.yml file (local.yml -> )
       connectionParams
     );
 

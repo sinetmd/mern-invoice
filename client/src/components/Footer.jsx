@@ -19,7 +19,7 @@ const Footer = () => {
       {/* helps with inconsistency in all browser with material ui (cssbaseline) */}
       <CssBaseline />
       <Box
-        component="footer"
+        className="footer"
         sx={{
           py: 1,
           px: 1,

@@ -18,7 +18,6 @@ import RegisterPage from "./features/auth/pages/RegisterPage";
 import ResendEmailTokenPage from "./features/auth/pages/ResendEmailTokenPage";
 import VerifiedPage from "./features/auth/pages/VerifiedPage";
 import useTitle from "./hooks/useTitle";
-import DashboardPage from "./pages/DashboardPage";
 import HomePage from "./pages/HomePage";
 import UsersListPage from "./features/users/pages/UsersListPage";
 import ProfilePage from "./features/users/pages/ProfilePage";
@@ -30,6 +29,7 @@ import CustomerEditForm from "./features/customers/pages/CustomerEditForm";
 import DocumentsPage from "./features/documents/pages/DocumentsPage";
 import DocCreateEditForm from "./features/documents/pages/DocCreateEditForm";
 import SingleDocumentPage from "./features/documents/pages/SingleDocumentPage";
+import DashboardPage from "./features/dashboard/pages/components/DashboardPage";
 
 export const App = () => {
   useTitle("MERN Invoice - Home");
@@ -83,11 +83,12 @@ export const App = () => {
             />
 
             {/*  documents */}
-            <Route path="documents" element={<DocumentsPage />} />
-            <Route path="create-doc" element={<DocCreateEditForm />} />
-            <Route path="edit-doc/:id" element={<DocCreateEditForm />} />
-            <Route path="document/:id" element={<SingleDocumentPage />} />
+            <Route path="/documents" element={<DocumentsPage />} />
+            <Route path="/create-doc" element={<DocCreateEditForm />} />
+            <Route path="/edit-doc/:id" element={<DocCreateEditForm />} />
+            <Route path="/document/:id" element={<SingleDocumentPage />} />
 
+            {/* Dashboard  */}
             <Route path="dashboard" element={<DashboardPage />} />
           </Route>
 
