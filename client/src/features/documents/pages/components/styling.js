@@ -1,12 +1,12 @@
-export const documentTypeStyling = (status) => {
-  return documentType === "Paid"
+export const statusStyling = (status) => {
+  return status === "Paid"
     ? {
         border: "solid 1px black",
         backgroundColor: "#76ff03",
         padding: "8px 18px",
         borderRadius: "20px",
       }
-    : documentType === "Not Fully Paid"
+    : status === "Not Fully Paid"
     ? {
         border: "solid 1px black",
         backgroundColor: "#b71c1c",
@@ -47,5 +47,5 @@ export const statusColor = (totalAmountReceived, status) => {
     ? "green"
     : status === "Not Paid"
     ? "red"
-    : "red"; //default color
+    : "red";
 };
